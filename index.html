@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <link rel="stylesheet" href="./main.css">
+  <title>Frontend Mentor | Planets fact site</title>
+</head>
+<body>
+  <header class="page-header">
+    <div class="header-content">
+      <div class="logo-mobileNavBtn-wrapper">
+        <a href="index.html" class="logo-link">the planets</a>
+        <button type="button" class="mobile-nav-btn" id="menuTrigger" aria-label="Menu" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" width="24" height="17"><g fill="#FFF" fill-rule="evenodd"><path d="M0 0h24v3H0zM0 7h24v3H0zM0 14h24v3H0z"/></g></svg>
+        </button>
+      </div>
+      <nav class="page-nav" id="pageNav">
+                <ul class="page-nav-list">
+                    <li>
+                        <span class="planet-clr"></span>
+                        <a href="#" class="page-nav-link" data-name="Mercury">mercury</a>
+                    </li>
+                    <li>
+                        <span class="planet-clr"></span>
+                        <a href="#" class="page-nav-link" data-name="Venus">venus</a>
+                    </li>
+                    <li>
+                        <span class="planet-clr"></span>
+                        <a href="#" class="page-nav-link" data-name="Earth">earth</a>
+                    </li>
+                    <li>
+                        <span class="planet-clr"></span>
+                        <a href="#" class="page-nav-link" data-name="Mars">mars</a>
+                    </li>
+                    <li>
+                        <span class="planet-clr"></span>
+                        <a href="#" class="page-nav-link" data-name="Jupiter">jupiter</a>
+                    </li>
+                    <li>
+                        <span class="planet-clr"></span>
+                        <a href="#" class="page-nav-link" data-name="Saturn">saturn</a>
+                    </li>
+                    <li>
+                        <span class="planet-clr"></span>
+                        <a href="#" class="page-nav-link" data-name="Uranus">uranus</a>
+                    </li>
+                    <li>
+                        <span class="planet-clr"></span>
+                        <a href="#" class="page-nav-link" data-name="Neptune">neptune</a>
+                    </li>
+                </ul>
+            </nav>
+    </div>
+  </header>
+  <main>
+    <section class="planet-details-section">
+      <div class="content">
+        <div class="main-content-wrapper">
+          <!-- Planet Image Wrapper -->
+          <div class="planet-img-wrapper">
+            <img src="" alt="flat icon of planet" id="planetImg" class="planet-img" />
+            <img src="" id="geologyImg" class="geology-img" hidden />
+          </div>
+          <!-- Planet details wrapper -->
+           <article class="planet-info-content">
+              <h1 class="planet-name" id="planetName"></h1>
+              <p class="planet-description" id="planetDesc"></p>
+              <p class="source-link">Source:<a href="https://www.wikipedia.org/" target="_blank">Wikipedia</a><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"><path fill="#FFF" d="M11.34.66C10.9.22 10.37 0 9.75 0h-7.5C1.63 0 1.1.22.66.66.22 1.1 0 1.63 0 2.25v7.5c0 .62.22 1.15.66 1.59.44.44.97.66 1.59.66h7.5c.62 0 1.15-.22 1.59-.66.44-.44.66-.97.66-1.59v-7.5c0-.62-.22-1.15-.66-1.59zM10 6.25a.467.467 0 01-.305.46.544.544 0 01-.195.04.465.465 0 01-.352-.149L8.023 5.476 3.852 9.648a.481.481 0 01-.352.149.48.48 0 01-.352-.149l-.796-.797a.48.48 0 01-.149-.351.48.48 0 01.149-.352l4.172-4.172-1.125-1.125c-.162-.15-.198-.333-.11-.546A.467.467 0 015.75 2H9.5c.135 0 .253.05.352.148A.48.48 0 0110 2.5v3.75z" opacity=".5"/></svg> </p>
+            </article>
+            <div class="planet-internal-links-wrapper">
+              <button type="button" class="internal-link-btn active-link-btn" data-link="overview">
+                <span class="link-num">01</span>
+                <span class="link-heading">overview</span></button>
+
+              <button type="button" class="internal-link-btn" data-link="structure">
+                <span class="link-num">02</span>
+                <span class="link-heading-first">internal</span>
+                <span class="link-heading">structure</span></button>
+
+              <button type="button" class="internal-link-btn" data-link="geology">
+                <span class="link-num">03</span>
+                <span class="link-heading-first">surface</span>
+                <span class="link-heading">geology</span>
+              </button>
+            </div>
+        </div>
+        <div class="planet-facts-wrapper">
+          <div class="single-fact">
+              <p class="fact-name">rotation time</p>
+              <p class="fact-value" data-fact="rotation"></p>
+          </div>
+          <div class="single-fact">
+              <p class="fact-name">revolution time</p>
+              <p class="fact-value" data-fact="revolution"></p>
+          </div>
+          <div class="single-fact">
+              <p class="fact-name">radius</p>
+              <p class="fact-value" data-fact="radius"></p>
+          </div>
+          <div class="single-fact">
+              <p class="fact-name">average temp</p>
+              <p class="fact-value" data-fact="temperature"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+<script src="./app.js"></script>
+</body>
+</html>

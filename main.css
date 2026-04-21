@@ -1,0 +1,580 @@
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100..700');
+
+@font-face {
+  font-family: "SpartanMB"; 
+  src: url("./assets/fonts/SpartanMB-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SpartanMB"; 
+  src: url("./assets/fonts/SpartanMB-Bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+:root {
+    --neutral-950: #000000;
+    --neutral-500: #979797;
+    --neutral-300: #d8d8d8;
+    --neutral-0: #ffffff;
+    --aqua-100: #b1d5e2;
+    --aqua-50: #def4fc;
+    --navy-950: #070724;
+    --teal-400: #1ec1a2;
+    --purple-600: #6d2ed5;
+    --bronze-700: #bb7d43;
+    --red-500: #d83a34;
+    --orange-600: #d14c32;
+    --amber-400: #EDA249;
+    --blue-600: #2d68f0;
+    --sky-400: #419ebb;
+
+    --ff-primary: "SpartanMB", sans-serif;
+    --ff-heading: "Antonio", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: var(--ff-primary);
+    font-size: 62.5%;
+}
+
+body {
+    background-color: var(--navy-950);
+    color: var(--neutral-0);
+    font-size: 1.6rem;
+    width: 100%;
+    min-height: 100vh;
+    background-image: url("./assets/background-stars.svg");
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+button {
+    border: none;
+    font-family: var(--ff-primary);
+}
+
+.page-header {
+    padding-block: 2.4rem;
+    border-bottom: 1px solid #97979750;
+    position: relative;
+}
+
+.header-content {
+    width: 90vw;
+    max-width: 128rem;
+    margin-inline: auto;
+}
+
+.logo-mobileNavBtn-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-link {
+    font-size: 2.8rem;
+    font-family: var(--ff-heading);
+    line-height: 130%;
+    letter-spacing: -1px;
+    color: var(--neutral-0);
+    text-transform: uppercase;
+}
+
+.mobile-nav-btn {
+    background-color: transparent;
+    opacity: .25;
+}
+
+.page-nav {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: translateY(calc(100% + 1px));
+    background-color: var(--navy-950);
+    width: 100%;
+    padding-inline: 2.4rem;
+    padding-block: 1.6rem;
+    display: none;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.page-nav.open {
+    display: block;
+}
+
+.page-nav-list{
+    display: flex;
+    flex-direction: column;
+}
+
+.page-nav-list li {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    border-bottom: 1px solid #97979750;
+}
+
+.page-nav-list li:last-child {
+    border-bottom: none;
+}
+
+.planet-clr {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 100vmax;
+    background-color: var(--accent-color);
+}
+
+.page-nav-link {
+    display: block;
+    color: var(--neutral-300);
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 165%;
+    letter-spacing: 1.35px;
+    padding-block: 2.4rem;
+}
+
+.planet-details-section {
+    padding-block: 2.4rem 6rem;
+}
+
+.content {
+    width: 90vw;
+    max-width: 111rem;
+    margin-inline: auto;
+}
+
+.main-content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.planet-img-wrapper {
+    order: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30rem;
+    position: relative;
+}
+
+.planet-img {
+    width: 14rem;
+    display: block;
+}
+
+.saturn-img {
+    width: 24rem;
+}
+
+.geology-img {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, -10%);
+    width: 8rem; 
+}
+
+.planet-info-content {
+    order: 2;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.planet-name {
+    font-family: var(--ff-heading);
+    font-size: 4rem;
+    font-weight: normal;
+    text-transform: uppercase;
+    line-height: 130%;
+    letter-spacing: -1.5px;
+    margin-bottom: 1.6rem;
+}
+
+.planet-description {
+    line-height: 200%;
+    font-size: 1.5rem;
+    letter-spacing: 0;
+    margin-bottom: 3.2rem;
+}
+
+.source-link {
+    color: var(--neutral-500);
+    font-size: 1.4rem;
+    line-height: 180%;
+
+    a {
+        font-weight: bold;
+        color: var(--neutral-500);
+        text-decoration: underline;
+        margin-inline: .5rem;
+    }
+}
+
+.planet-internal-links-wrapper {
+    order: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #97979750;
+}
+
+.internal-link-btn {
+    padding-inline: .5rem;
+    background-color: var(--navy-950);
+    color: var(--neutral-0);
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 275%;
+    letter-spacing: 2px;
+    opacity: .5;
+}
+
+.internal-link-btn:hover {
+    background-color: #313148;
+    border-color: transparent;
+}
+
+.link-num {
+    display: none;
+}
+
+.link-heading-first,
+.link-heading {
+    text-transform: uppercase;
+}
+
+.link-heading-first {
+    display: none;
+}
+
+.active-link-btn {
+    opacity: 1;
+    border-bottom: 4px solid var(--accent-color);
+}
+
+.planet-facts-wrapper {
+    margin-top: 2.8rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: .8rem;
+}
+
+.single-fact {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.1rem 2.4rem;
+    border: 1px solid #ffffff50; 
+}
+
+.fact-name {
+    color: var(--neutral-500);
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 225%;
+    margin-bottom: 4px;
+}
+
+.fact-value {
+    font-family: var(--ff-heading);
+    font-size: 2rem;
+    line-height: 130%;
+    letter-spacing: -.25px;
+}
+
+@media screen and (min-width: 52rem) {
+    .page-header {
+        padding-block: 2.4rem;
+        border-bottom: 1px solid #97979750;
+        position: relative;
+    }
+
+    .header-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .mobile-nav-btn {
+        display: none;
+    }
+
+    .page-nav {
+        position: static;
+        left: initial;
+        bottom: initial;
+        transform: translateY(0);
+        background-color:none;
+        width: initial;
+        padding-inline: 0;
+        padding-block: 0;
+        display: initial;
+        overflow: hidden;
+        z-index: 0;
+    }
+
+    .page-nav-list {
+        display: flex;
+        flex-direction: row;
+        gap: 3.2rem;
+    }
+
+    .page-nav-list li {
+        display: flex;
+        align-items: center;
+        gap: 0;
+        border-bottom: none;
+    }
+
+    .planet-clr {
+        display: none;
+    }
+
+    .page-nav-link {
+        opacity: .75;
+    }
+
+    .main-content-wrapper {
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        grid-column: auto;
+        column-gap: 6.4rem;
+    }
+
+    .planet-img-wrapper {
+        order: 0;
+        height: 45rem;
+        grid-column: 1/-1;
+    }
+
+    .planet-img {
+        width: 18.5rem;
+    }
+
+    .saturn-img {
+        width: 38rem;
+    }
+
+    .geology-img {
+        transform: translate(-50%, -20%);
+        width: 12rem; 
+    }
+
+    .planet-info-content {
+        order: 1;
+        text-align: left;
+    }
+
+    .planet-name {
+        font-size: 4.8rem;
+        letter-spacing: 0;
+        margin-bottom: 2.4rem;
+    }
+
+    .planet-description {
+        line-height: 200%;
+        font-size: 1.5rem;
+        margin-bottom: 3.2rem;
+    }
+
+    .source-link {
+        color: var(--neutral-500);
+        font-size: 1.4rem;
+        line-height: 180%;
+
+        a {
+            font-weight: bold;
+            color: var(--neutral-500);
+            text-decoration: underline;
+            margin-inline: .5rem;
+        }
+    }
+
+    .planet-internal-links-wrapper {
+        order: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+        border-bottom: none;
+        gap: 1.6rem;
+    }
+
+    .internal-link-btn {
+        cursor: pointer;
+        border: 1px solid #97979750;
+        height: 5rem;
+        line-height: 210%;
+        letter-spacing: 2.5px;
+        padding: 1rem 2rem;
+        display: flex;
+        align-items: center;
+        opacity: 1;
+    }
+
+    .link-num {
+        display: initial;
+        opacity: .5;
+        margin-right: 1.6rem;
+    }
+
+    .link-heading-first {
+        display: initial;
+    }
+
+    .link-heading {
+        margin-left: 1ch;
+    }
+
+    .active-link-btn {
+        background-color: var(--accent-color);
+        border-bottom: none;
+        border-color: var(--accent-color);
+        opacity: 1;
+    }
+
+    .planet-facts-wrapper {
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 1.2rem;
+        row-gap: 0rem;
+    }
+
+    .single-fact {
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        padding: 1.3rem 1.5rem;
+    }
+
+    .fact-name {
+        margin-bottom: 4px;
+    }
+
+    .fact-value {
+        font-size: 2.4rem;
+        line-height: 130%;
+        letter-spacing: -1px;
+    }
+}
+
+@media screen and (min-width: 80rem) {
+     .page-header {
+        padding-block: 0;
+    }
+
+    .header-content {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .page-nav-list {
+        gap: 4rem;
+    }
+
+    .page-nav-link {
+        display: block;
+        font-size: 1.2rem;
+        line-height: 210%;
+        letter-spacing: 1px;
+        padding-block: 2.4rem;
+        border-top: 4px solid transparent;
+    }
+
+    .page-nav-link:hover {
+        border-color: var(--accent-color);
+    }
+
+    .planet-details-section {
+        padding-block: 14rem 6rem;
+    }
+
+    .main-content-wrapper {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-column: auto;
+        column-gap: 6rem;
+        row-gap: 4rem;
+    }
+
+     .planet-img-wrapper {
+        order: 0;
+        grid-column: 1/2;
+        grid-row: 1/ span 2;
+        height: initial;
+        padding: 4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .planet-img {
+        width: 45rem;
+        aspect-ratio: 1/1;
+        object-fit: contain;
+    }
+
+    .saturn-img {
+        width: 55rem;
+    }
+
+    .geology-img {
+        transform: translate(-50%, -5%);
+        width: 20rem; 
+    }
+    
+    .planet-info-content {
+        order: 0;
+        grid-column: 2/-1;
+        grid-row: 1/ span 1;
+    }
+
+    .planet-name {
+        font-size: 8rem;
+        letter-spacing: 0;
+        margin-bottom: 2.4rem;
+    }
+
+    .planet-description {
+        line-height: 180%;
+        font-size: 1.6rem;
+        margin-bottom: 2.4rem;
+    }
+
+    .planet-internal-links-wrapper {
+        order: 0;
+        grid-column: 2/-1;
+        grid-row: 2/span 1;
+        align-items: stretch;
+        justify-content: center;
+        border-bottom: none;
+        gap: 1.6rem;
+    }
+
+    .planet-facts-wrapper {
+        margin-top: 8.4rem;
+        column-gap: 3rem;
+    }
+}
