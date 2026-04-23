@@ -60,6 +60,9 @@ const fetchPlanets = async () => {
 }
 
 const displayPlanet = (planet) => {
+    if(!planetImageEl || !geologyImageEl || 
+       !planetNameEl || !planetDescEl || !planetLinkEl) return;
+
     if(activeTab === "geology") {
         geologyImageEl.src = planet.images.geology;
         geologyImageEl.hidden = false;
@@ -91,23 +94,28 @@ const displayPlanet = (planet) => {
         // Adding current planet name as class
         internalLinksWrapper.classList.add(planet.name.toLowerCase());
     }
-    
 }
 
 planetNamesList.forEach(planet => {
     planet.addEventListener("click", function(e) {
         activeTab = "overview";
         internalLinksList.forEach(link => link.classList.remove("active-link-btn"));
-        internalLinksList[0].classList.add("active-link-btn");
+        if(internalLinksList[0]) {
+            internalLinksList[0].classList.add("active-link-btn");
+        }
         let planetName = e.currentTarget.dataset.name;
         
         currentPlanet = planets.find(planet => planet.name === planetName);
-        if(currentPlanet === undefined) {
-            planetNameEl.textContent = "Sorry, we could not find the planet."
+        if(!currentPlanet) {
+            if(planetNameEl) {
+                planetNameEl.textContent = "Sorry, we could not find the planet."
+            }
             return;
         }
         displayPlanet(currentPlanet);
-        pageNav.classList.remove("open");
+        if(pageNav) {
+            pageNav.classList.remove("open");
+        }
     });
 });
 
@@ -119,6 +127,7 @@ internalLinksList.forEach(link => {
        
         internalLinksList.forEach(link => link.classList.remove("active-link-btn"));
         button.classList.add("active-link-btn");
+        if(!currentPlanet) return;
         displayPlanet(currentPlanet);
     });
 });
@@ -126,10 +135,13 @@ internalLinksList.forEach(link => {
 const init = async () => {
     planets = await fetchPlanets();
     if(!planets?.length) {
-        planetNameEl.textContent = "Problem with loading data."
+        if(planetNameEl) {
+            planetNameEl.textContent = "Problem with loading data."
+        }
         return;
     }
     currentPlanet = planets.find(planet => planet.name === "Venus");
+    if(!currentPlanet) return;
     displayPlanet(currentPlanet);
 }
 

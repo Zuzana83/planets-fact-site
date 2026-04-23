@@ -231,14 +231,14 @@ button {
     color: var(--neutral-500);
     font-size: 1.4rem;
     line-height: 180%;
-
-    a {
-        font-weight: bold;
-        color: var(--neutral-500);
-        text-decoration: underline;
-        margin-inline: .5rem;
-    }
 }
+
+.source-link a {
+    font-weight: bold;
+    color: var(--neutral-500);
+    text-decoration: underline;
+    margin-inline: .5rem;
+    }
 
 .planet-internal-links-wrapper {
     order: 0;
@@ -336,7 +336,7 @@ button {
         left: initial;
         bottom: initial;
         transform: translateY(0);
-        background-color:none;
+        background-color: transparent;
         width: initial;
         padding-inline: 0;
         padding-block: 0;
