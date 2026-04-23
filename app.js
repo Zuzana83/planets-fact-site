@@ -14,7 +14,7 @@ const planetFactElements = document.querySelectorAll(".fact-value");
 if(mobileMenuTriggerBtn) {
     mobileMenuTriggerBtn.addEventListener("click", function() {
         const isExpanded = mobileMenuTriggerBtn.getAttribute("aria-expanded") === "true";
-        mobileMenuTriggerBtn.setAttribute("aria-expanded", !isExpanded);
+        mobileMenuTriggerBtn.setAttribute("aria-expanded", String(!isExpanded));
         pageNav.classList.toggle("open");
     });
 }
