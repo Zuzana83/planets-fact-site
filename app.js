@@ -105,7 +105,7 @@ planetNamesList.forEach(planet => {
         }
         const planetName = e.currentTarget.dataset.name;
         
-        currentPlanet = planets.find(planet => planet.name === planetName);
+        currentPlanet = planets.find(planetObj => planetObj.name === planetName);
         if(!currentPlanet) {
             if(planetNameEl) {
                 planetNameEl.textContent = "Sorry, we could not find the planet."
@@ -121,8 +121,8 @@ planetNamesList.forEach(planet => {
 
 internalLinksList.forEach(link => {
     link.addEventListener("click", function(e) {
-        let button = e.currentTarget;
-        let linkName = button.dataset.link;
+        const button = e.currentTarget;
+        const linkName = button.dataset.link;
         activeTab = linkName;
        
         internalLinksList.forEach(link => link.classList.remove("active-link-btn"));
