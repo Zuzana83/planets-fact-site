@@ -41,7 +41,7 @@ let currentPlanet = null;
 let activeTab = "overview";
 
 planetNamesList.forEach(planet => {
-    let planetName = planet.dataset.name;
+    const planetName = planet.dataset.name;
     planet.classList.add(planetName.toLowerCase());
     // Span inside
     if(planet.previousElementSibling) {
@@ -82,7 +82,7 @@ const displayPlanet = (planet) => {
     planetLinkEl.href = planet[activeTab].source;
 
     for(const planetFact of planetFactElements) {
-        let fact = planetFact.dataset.fact;
+        const fact = planetFact.dataset.fact;
         planetFact.textContent = planet[fact];
     }
 
@@ -103,7 +103,7 @@ planetNamesList.forEach(planet => {
         if(internalLinksList[0]) {
             internalLinksList[0].classList.add("active-link-btn");
         }
-        let planetName = e.currentTarget.dataset.name;
+        const planetName = e.currentTarget.dataset.name;
         
         currentPlanet = planets.find(planet => planet.name === planetName);
         if(!currentPlanet) {
