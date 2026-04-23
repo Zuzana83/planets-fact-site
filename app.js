@@ -7,14 +7,17 @@ const geologyImageEl = document.getElementById("geologyImg");
 const planetNameEl = document.getElementById("planetName");
 const planetDescEl = document.getElementById("planetDesc");
 const planetLinkEl = document.querySelector(".source-link a");
+const internalLinksWrapper = document.querySelector(".planet-internal-links-wrapper");
 const internalLinksList = document.querySelectorAll(".internal-link-btn");
 const planetFactElements = document.querySelectorAll(".fact-value");
 
-mobileMenuTriggerBtn.addEventListener("click", function() {
-    const isExpanded = mobileMenuTriggerBtn.getAttribute("aria-expanded") === "true";
-    mobileMenuTriggerBtn.setAttribute("aria-expanded", !isExpanded);
-    pageNav.classList.toggle("open");
-});
+if(mobileMenuTriggerBtn) {
+    mobileMenuTriggerBtn.addEventListener("click", function() {
+        const isExpanded = mobileMenuTriggerBtn.getAttribute("aria-expanded") === "true";
+        mobileMenuTriggerBtn.setAttribute("aria-expanded", !isExpanded);
+        pageNav.classList.toggle("open");
+    });
+}
 
 const imageMap = {
     overview: "planet",
@@ -39,9 +42,11 @@ let activeTab = "overview";
 
 planetNamesList.forEach(planet => {
     let planetName = planet.dataset.name;
-    planet.style.setProperty("--accent-color", colorMap[planetName]);
+    planet.classList.add(planetName.toLowerCase());
     // Span inside
-    planet.previousElementSibling.style.setProperty("--accent-color", colorMap[planetName]);
+    if(planet.previousElementSibling) {
+        planet.previousElementSibling.classList.add(planetName.toLowerCase());
+    }
 });
 
 const fetchPlanets = async () => {
@@ -59,7 +64,6 @@ const displayPlanet = (planet) => {
         geologyImageEl.src = planet.images.geology;
         geologyImageEl.hidden = false;
     } else {
-        geologyImageEl.src = "";
         geologyImageEl.hidden = true;
     }
 
@@ -79,8 +83,15 @@ const displayPlanet = (planet) => {
         planetFact.textContent = planet[fact];
     }
 
-    const activeBtn = document.querySelector(".active-link-btn");
-    activeBtn.style.setProperty("--accent-color", colorMap[planet.name]);
+    if(internalLinksWrapper) {
+        // Removing all classes with planet name
+        Object.keys(colorMap).forEach(name => {
+            internalLinksWrapper.classList.remove(name.toLowerCase());
+        });
+        // Adding current planet name as class
+        internalLinksWrapper.classList.add(planet.name.toLowerCase());
+    }
+    
 }
 
 planetNamesList.forEach(planet => {
@@ -88,7 +99,7 @@ planetNamesList.forEach(planet => {
         activeTab = "overview";
         internalLinksList.forEach(link => link.classList.remove("active-link-btn"));
         internalLinksList[0].classList.add("active-link-btn");
-        let planetName = e.target.dataset.name;
+        let planetName = e.currentTarget.dataset.name;
         
         currentPlanet = planets.find(planet => planet.name === planetName);
         if(currentPlanet === undefined) {
@@ -102,7 +113,7 @@ planetNamesList.forEach(planet => {
 
 internalLinksList.forEach(link => {
     link.addEventListener("click", function(e) {
-        let button = e.target.closest("button");
+        let button = e.currentTarget;
         let linkName = button.dataset.link;
         activeTab = linkName;
        

@@ -35,6 +35,15 @@
     --ff-heading: "Antonio", sans-serif;
 }
 
+.mercury { --accent-color: var(--sky-400); }
+.venus { --accent-color: var(--amber-400); }
+.earth { --accent-color: var(--purple-600); }
+.mars { --accent-color: var(--orange-600); }
+.jupiter { --accent-color: var(--red-500); }
+.saturn { --accent-color: var(--bronze-700); }
+.uranus { --accent-color: var(--teal-400); }
+.neptune { --accent-color: var(--blue-600); }
+
 *,
 *::before,
 *::after {
